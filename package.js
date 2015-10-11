@@ -13,7 +13,10 @@ Package.onUse(function(api) {
 
   api.use('http', ['client', 'server']);
 
-  api.addFiles('digits_login_button.css', 'client');
-
-  api.addFiles("twitter.js");
+  api.addFiles([
+    'digits.js',
+    'digits_configuration.html',
+    'digits_configuration.js',
+    'digits_login_button.css'
+  ], ['client']);
 });
