@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Fabric Sign in service with phone numbers",
-  version: "0.0.1"
+  version: "1.0.0"
 });
 
 Package.onUse(function(api) {
