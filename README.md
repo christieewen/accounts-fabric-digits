@@ -7,7 +7,8 @@ http://www.abeautifulsite.net/convert-an-image-to-a-data-uri-with-your-browser/
 
 
 TODO: 
-1. Testing
-2. Documentation
+   0. Implement inserting scripts into the html
+   1. Testing
+   2. Documentation
 
 Pull Requests Welcome!  :)
