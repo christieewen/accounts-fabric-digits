@@ -1,7 +1,7 @@
 Accounts.oauth.registerService('digits');
 
 if (Meteor.isClient) {
-  Meteor.loginWithTwitter = function(options, callback) {
+  Meteor.loginWithDigits = function(options, callback) {
     // support a callback without options
     if (! callback && typeof options === "function") {
       callback = options;
