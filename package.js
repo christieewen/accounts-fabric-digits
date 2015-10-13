@@ -6,6 +6,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.use('underscore', ['server']);
   api.use('accounts-base', ['client', 'server']);
+  api.use('kadira:dochead', ['client']);
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);

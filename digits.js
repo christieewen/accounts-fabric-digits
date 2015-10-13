@@ -2,11 +2,17 @@ Accounts.oauth.registerService('digits');
 
 if (Meteor.isClient) {
   Meteor.loginWithTwitter = function(options, callback) {
+
     // support a callback without options
     if (! callback && typeof options === "function") {
       callback = options;
       options = null;
     }
+    
+    var sdkScript = 'https://cdn.digits.com/1/sdk.js';
+    DocHead.loadScript(sdkScript, function(options.yourConsumerKey) {
+      Digits.init({ consumerKey: options.yourConsumerKey });
+    });
 
   // Digits do not require complexities of OAuth
   // Just add https://cdn.digits.com/1/sdk.js to login button
