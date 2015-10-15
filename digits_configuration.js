@@ -6,7 +6,7 @@ Template.configureLoginServiceDialogForDigits.helpers({
 
 Template.configureLoginServiceDialogForDigits.fields = function () {
   return [
-    {property: 'consumerKey', label: 'Consumer Key (API Key)'},
-    {property: 'consumerSecret', label: 'Consumer Secret (API Secret)'}
+    {property: 'clientId', label: 'Consumer Key (API Key)'},
+    {property: 'secret', label: 'Consumer Secret (API Secret)'}
   ];
 };
