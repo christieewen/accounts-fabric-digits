@@ -1,5 +1,16 @@
 # accounts-fabric-digits
-Meteor package for Twitter Fabric Digits sign in with phone number.  See https://docs.fabric.io/web/digits/getting-started.html
+#### Twitter Fabric Digits sign in with phone number for meteor.  See https://docs.fabric.io/web/digits/getting-started.html
+##Install
+
+`cd <your-meteor-project>`
+
+`meteor add christieewen:accounts-fabric-digits`
+
+and also add following package as pre-req -
+
+`meteor add service-configuration`
+
+
 
 
 To convert an image to a data URI with your browser, see: 
