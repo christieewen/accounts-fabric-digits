@@ -6,10 +6,6 @@
 
 `meteor add christieewen:accounts-fabric-digits`
 
-and also add following package as pre-req -
-
-`meteor add service-configuration`
-
 
 
 
@@ -18,7 +14,7 @@ http://www.abeautifulsite.net/convert-an-image-to-a-data-uri-with-your-browser/
 
 
 TODO: 
-   0. Implement inserting scripts into the html
+   0. Implement the login flow
    1. Testing
    2. Documentation
 

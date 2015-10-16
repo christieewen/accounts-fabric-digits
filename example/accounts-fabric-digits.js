@@ -16,14 +16,14 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-    Accounts.loginServiceConfiguration.remove({
-      service: 'digits'
-    });
+    //Accounts.loginServiceConfiguration.remove({
+     // service: 'digits'
+    //});
 
-    Accounts.loginServiceConfiguration.insert({
-      service: 'digits',
-      clientId: 'CLIENT_ID',
-      secret: 'SECRET'
-    });
+    //Accounts.loginServiceConfiguration.insert({
+     // service: 'digits',
+     // clientId: 'CLIENT_ID',
+     // secret: 'SECRET'
+    //});
   });
 }
