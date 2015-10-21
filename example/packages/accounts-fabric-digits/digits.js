@@ -20,13 +20,15 @@ if (Meteor.isClient) {
     Digits.requestCredential(options, credentialRequestCompleteCallback);
   };
 } else {
-  var autopublishedFields = _.map(
+    // Digits might not need this
+    // var autopublishedFields = _.map(
     // don't send access token. https://dev.twitter.com/discussions/5025
-    Twitter.whitelistedFields.concat(['id', 'screenName']),
-    function (subfield) { return 'services.twitter.' + subfield; });
+    //Digits.whitelistedFields.concat(['id', 'screenName']),
+    //function (subfield) { return 'services.digits.' + subfield; });
 
   Accounts.addAutopublishFields({
-    forLoggedInUser: autopublishedFields,
+    //forLoggedInUser: autopublishedFields,
+    forLoggedInUser: ['services.digits'],
     forOtherUsers: autopublishedFields
   });
 }

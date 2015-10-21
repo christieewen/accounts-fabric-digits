@@ -1,7 +1,7 @@
 Template.configureLoginServiceDialogForDigits.helpers({
   siteUrl: function () {
-    return Meteor.absoluteUrl();
-  }
+  	// Twitter doesn't recognize localhost as a domain name
+    return Meteor.absoluteUrl({replaceLocalhost: true});  }
 });
 
 Template.configureLoginServiceDialogForDigits.fields = function () {
