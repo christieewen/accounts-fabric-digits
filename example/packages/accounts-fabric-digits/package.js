@@ -6,6 +6,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
+  api.use('random', 'client');
   api.use('underscore', ['server']);
   api.use('accounts-base', ['client', 'server']);
   api.use('kadira:dochead', ['client']);
@@ -21,15 +22,15 @@ Package.onUse(function(api) {
   api.use('http', ['client', 'server']);
   api.use('templating', 'client');
 
-  api.addAssets('digits_configuration.html', 'client');
+  //api.addAssets('digits_configuration.html', 'client');
 
   api.addFiles('digits.js');
 
   api.export('Digits');
 
   api.addFiles([
+    'digits_configuration.html',
     'digits_configuration.js',
-    'cannonball.js', // TODO: get rid of this file
     'digits_login_button.css'
   ], ['client']);
 
