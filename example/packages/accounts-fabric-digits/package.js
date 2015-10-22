@@ -13,9 +13,13 @@ Package.onUse(function(api) {
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
+  api.imply('accounts-oauth', ['client', 'server']);
+
   //api.use('twitter', ['client', 'server']);
-  
+  api.use('oauth', ['client', 'server']);
+  api.use('oauth2', ['client', 'server']);
   api.use('http', ['client', 'server']);
+  api.use('templating', 'client');
 
   api.addAssets('digits_configuration.html', 'client');
 
@@ -28,6 +32,11 @@ Package.onUse(function(api) {
     'cannonball.js', // TODO: get rid of this file
     'digits_login_button.css'
   ], ['client']);
+
+  api.addFiles('digits_server.js', 'server');
+  api.addFiles('digits_client.js', 'client');
+
+  api.addFiles('cannonballMeteorMethods.js','server');
 });
 
 Package.onTest(function(api) {

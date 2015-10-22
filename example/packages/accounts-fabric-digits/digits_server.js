@@ -9,7 +9,7 @@ var urls = {
 
 
 // https://dev.twitter.com/docs/api/1.1/get/account/verify_credentials
-Digits.whitelistedFields = ['profile_image_url', 'profile_image_url_https', 'lang'];
+//Digits.whitelistedFields = ['profile_image_url', 'profile_image_url_https', 'lang'];
 
 OAuth.registerService('digits', 1, urls, function(oauthBinding) {
   var identity = oauthBinding.get('https://api.twitter.com/1.1/account/verify_credentials.json').data;
@@ -22,8 +22,8 @@ OAuth.registerService('digits', 1, urls, function(oauthBinding) {
   };
 
   // include helpful fields from twitter
-  var fields = _.pick(identity, Digits.whitelistedFields);
-  _.extend(serviceData, fields);
+  //var fields = _.pick(identity, Digits.whitelistedFields);
+  //_.extend(serviceData, fields);
 
   return {
     serviceData: serviceData,

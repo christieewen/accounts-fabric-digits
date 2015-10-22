@@ -20,15 +20,15 @@ if (Meteor.isClient) {
     Digits.requestCredential(options, credentialRequestCompleteCallback);
   };
 } else {
-    // Digits might not need this
-    // var autopublishedFields = _.map(
+  // Digits might not need this
+  //var autopublishedFields = _.map(
     // don't send access token. https://dev.twitter.com/discussions/5025
-    //Digits.whitelistedFields.concat(['id', 'screenName']),
-    //function (subfield) { return 'services.digits.' + subfield; });
+   // Digits.whitelistedFields.concat(['id', 'screenName']),
+   // function (subfield) { return 'services.digits.' + subfield; });
 
   Accounts.addAutopublishFields({
     //forLoggedInUser: autopublishedFields,
-    forLoggedInUser: ['services.digits'],
-    forOtherUsers: autopublishedFields
+    forLoggedInUser: ['services.digits']
+    //,forOtherUsers: autopublishedFields
   });
 }

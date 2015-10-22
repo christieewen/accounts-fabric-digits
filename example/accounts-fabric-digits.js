@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-  Template.hello.events({
+  Template.signin.events({
     'click button': function () {
       // increment the counter when button is clicked
       Session.set("counter", Session.get("counter") + 1);
@@ -9,7 +9,23 @@ if (Meteor.isClient) {
       }, function () {
         console.log('in call back', arguments);
       });
-    }
+    },
+    'click .digits-button': function(event, template) {
+      event.preventDefault();
+      var config = ServiceConfiguration.configurations.findOne({service: 'digits'});
+
+      console.log("config config config");
+      if (config)
+        console.log(config.clientId);
+
+      console.log('Digits login started.');
+      //Digits.logIn().done(onLogin).fail(onLoginFailure);
+
+      //Digits.logIn().done(Meteor.loginWithDigits).fail(Meteor.onLoginFailure); // Meteorizing the functions in promises
+      //Digits.logIn().done(Meteor.call('loginWithDigits'));
+      Digits.logIn().done(Meteor.call('onLogin'));
+  }
+
   });
 }
 
