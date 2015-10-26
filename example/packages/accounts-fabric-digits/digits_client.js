@@ -1,5 +1,6 @@
 Digits = {};
 
+
 // Request Digits credentials for the user
 // @param options {optional}  XXX support options.requestPermissions
 // @param credentialRequestCompleteCallback {Function} Callback function to call on
@@ -47,4 +48,5 @@ Digits.requestCredential = function (options, credentialRequestCompleteCallback)
     credentialRequestCompleteCallback: credentialRequestCompleteCallback,
     credentialToken: credentialToken
   });
+
 };

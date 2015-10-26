@@ -1,6 +1,13 @@
 Accounts.oauth.registerService('digits');
 
 if (Meteor.isClient) {
+  Meteor.startup(function () {
+    var sdkScript = 'https://cdn.digits.com/1/sdk.js';
+    DocHead.loadScript(sdkScript, function() {
+      // Digtis can not be initialized here because we don't know the consumer key yet.
+    });
+  });
+
   Meteor.loginWithDigits = function(options, callback) {
     // support a callback without options
     if (! callback && typeof options === "function") {
@@ -8,9 +15,7 @@ if (Meteor.isClient) {
       options = null;
     }
     
-    var sdkScript = 'https://cdn.digits.com/1/sdk.js';
-    DocHead.loadScript(sdkScript, function() {
-    });
+  // Digits.init({ consumerKey: 'EzunSXlVYw4rB04SB9VSop0tV' });
 
   // Digits do not require complexities of OAuth
   // Just add https://cdn.digits.com/1/sdk.js to login button

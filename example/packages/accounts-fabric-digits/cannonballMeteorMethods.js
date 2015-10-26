@@ -22,7 +22,7 @@ Meteor.methods({
     //  throw new Meteor.Error("pants-not-found", "Can't find my pants");
     //}
 
-    return "some return value";
+    return oAuthHeaders;  // or onDigitsSuccess???? Where is this defined?
   },
 
   setDigitsButton: function (text) {

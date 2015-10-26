@@ -1,4 +1,5 @@
 if (Meteor.isClient) {
+
 	Template.configureLoginServiceDialogForDigits.helpers({
   	siteUrl: function () {
   		// Twitter doesn't recognize localhost as a domain name

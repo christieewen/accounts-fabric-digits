@@ -1,5 +1,6 @@
 if (Meteor.isClient) {
   Template.signin.events({
+    /*
     'click button': function () {
       // increment the counter when button is clicked
       Session.set("counter", Session.get("counter") + 1);
@@ -10,6 +11,7 @@ if (Meteor.isClient) {
         console.log('in call back', arguments);
       });
     },
+    */
     'click .digits-button': function(event, template) {
       event.preventDefault();
       var config = ServiceConfiguration.configurations.findOne({service: 'digits'});

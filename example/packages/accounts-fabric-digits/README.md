@@ -6,8 +6,13 @@
 
 `meteor add christieewen:accounts-fabric-digits`
 
+and also add following package as pre-req -
 
+`meteor add service-configuration`
 
+and also add following package for the example -
+
+`meteor add accounts-ui`
 
 To convert an image to a data URI with your browser, see: 
 http://www.abeautifulsite.net/convert-an-image-to-a-data-uri-with-your-browser/
