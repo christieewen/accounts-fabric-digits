@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "Fabric Sign in service with phone numbers",
+  summary: "Fabric Digits Sign in service with phone numbers",
   version: "1.0.0",
   git: 'https://github.com/christieewen/accounts-fabric-digits',
   name: 'christieewen:accounts-fabric-digits'
@@ -26,7 +26,7 @@ Package.onUse(function(api) {
 
   api.addFiles('digits.js');
 
-  api.export('Digits');
+  api.export('FabricDigits');
 
   api.addFiles([
     'digits_configuration.html',

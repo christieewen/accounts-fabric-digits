@@ -1,4 +1,4 @@
-Digits = {};
+FabricDigits = {};
 
 var urls = {
   requestToken: "https://api.twitter.com/oauth/request_token",
@@ -36,6 +36,6 @@ OAuth.registerService('digits', 1, urls, function(oauthBinding) {
 });
 
 
-Digits.retrieveCredential = function(credentialToken, credentialSecret) {
+FabricDigits.retrieveCredential = function(credentialToken, credentialSecret) {
   return OAuth.retrieveCredential(credentialToken, credentialSecret);
 };

@@ -1,4 +1,4 @@
-Digits = {};
+FabricDigits = {};
 
 
 // Request Digits credentials for the user
@@ -6,7 +6,7 @@ Digits = {};
 // @param credentialRequestCompleteCallback {Function} Callback function to call on
 //   completion. Takes one argument, credentialToken on success, or Error on
 //   error.
-Digits.requestCredential = function (options, credentialRequestCompleteCallback) {
+FabricDigits.requestCredential = function (options, credentialRequestCompleteCallback) {
   // support both (options, callback) and (callback).
   if (!credentialRequestCompleteCallback && typeof options === 'function') {
     credentialRequestCompleteCallback = options;

@@ -14,15 +14,16 @@ if (Meteor.isClient) {
       callback = options;
       options = null;
     }
-    
-  // Digits.init({ consumerKey: 'EzunSXlVYw4rB04SB9VSop0tV' });
 
   // Digits do not require complexities of OAuth
   // Just add https://cdn.digits.com/1/sdk.js to login button
   // See: https://blog.twitter.com/2015/launching-digits-login-for-web
   // Cannonball seems to deal with OAuth so for the time being mirror all the other accounts-<services>
     var credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback);
-    Digits.requestCredential(options, credentialRequestCompleteCallback);
+    Digits.init({ consumerKey: 'EzunSXlVYw4rB04SB9VSop0tV' });
+
+    FabricDigits.requestCredential(options, credentialRequestCompleteCallback);
+    console.log (credentialRequestCompleteCallback);
   };
 } else {
   // Digits might not need this
