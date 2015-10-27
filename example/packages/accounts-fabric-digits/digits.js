@@ -1,11 +1,19 @@
 Accounts.oauth.registerService('digits');
 
 if (Meteor.isClient) {
-  Meteor.startup(function () {
+
+  (function(){
     var sdkScript = 'https://cdn.digits.com/1/sdk.js';
     DocHead.loadScript(sdkScript, function() {
-      // Digtis can not be initialized here because we don't know the consumer key yet.
+      // Digits need to be initialized when the sdk is loaded and we get the consumer key 
     });
+  });
+
+  Meteor.startup(function () {
+    //var sdkScript = 'https://cdn.digits.com/1/sdk.js';
+    //DocHead.loadScript(sdkScript, function() {
+      // Digits can not be initialized here because we don't know the consumer key yet.
+    //});
   });
 
   Meteor.loginWithDigits = function(options, callback) {
@@ -20,8 +28,7 @@ if (Meteor.isClient) {
   // See: https://blog.twitter.com/2015/launching-digits-login-for-web
   // Cannonball seems to deal with OAuth so for the time being mirror all the other accounts-<services>
     var credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback);
-    Digits.init({ consumerKey: 'EzunSXlVYw4rB04SB9VSop0tV' });
-
+  
     FabricDigits.requestCredential(options, credentialRequestCompleteCallback);
     console.log (credentialRequestCompleteCallback);
   };

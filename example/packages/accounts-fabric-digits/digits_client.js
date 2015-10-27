@@ -19,6 +19,19 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
       new ServiceConfiguration.ConfigError());
     return;
   }
+  var success = Digits.init({ consumerKey: config.clientId });
+
+  if (!success) {
+    var sdkScript = 'https://cdn.digits.com/1/sdk.js';
+    DocHead.loadScript(sdkScript, function() {
+      Digits.init({ consumerKey: config.clientId });
+    });
+  }
+
+  console.log("config:");
+  console.log(config);
+
+
 
   var credentialToken = Random.secret();
   // We need to keep credentialToken across the next two 'steps' so we're adding
