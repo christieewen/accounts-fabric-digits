@@ -19,18 +19,20 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
       new ServiceConfiguration.ConfigError());
     return;
   }
-  var success = Digits.init({ consumerKey: config.clientId });
 
-  if (!success) {
-    var sdkScript = 'https://cdn.digits.com/1/sdk.js';
-    DocHead.loadScript(sdkScript, function() {
-      Digits.init({ consumerKey: config.clientId });
+  //<head>
+  //<script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
+  //</head>
+  $('#digits-sdk').load(function () {
+    // Initialize Digits using the API key.
+    Digits.init({ consumerKey: config.clientId })
+      .done(function() {
+        console.log('Digits initialized.');
+      })
+      .fail(function() {
+        console.log('Digits failed to initialize.');
+      });
     });
-  }
-
-  console.log("config:");
-  console.log(config);
-
 
 
   var credentialToken = Random.secret();
