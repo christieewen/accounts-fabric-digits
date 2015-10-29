@@ -23,6 +23,8 @@ if (Meteor.isClient) {
       options = null;
     }
 
+    
+
   // Digits do not require complexities of OAuth
   // Just add https://cdn.digits.com/1/sdk.js to login button
   // See: https://blog.twitter.com/2015/launching-digits-login-for-web
@@ -30,6 +32,11 @@ if (Meteor.isClient) {
     var credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback);
   
     FabricDigits.requestCredential(options, credentialRequestCompleteCallback);
+
+    $('#digits-sdk').load(function () {
+      Digits.logIn().done(Meteor.call('onLogin'));
+    });
+    
     console.log (credentialRequestCompleteCallback);
   };
 } else {
