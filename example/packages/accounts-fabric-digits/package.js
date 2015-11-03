@@ -10,6 +10,7 @@ Package.onUse(function(api) {
   api.use('underscore', ['server']);
   api.use('accounts-base', ['client', 'server']);
   api.use('kadira:dochead', ['client']);
+  api.use('iron:router', ['client', 'server']); // experimenting
   api.use('service-configuration', ['client', 'server']);
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
@@ -22,6 +23,7 @@ Package.onUse(function(api) {
   api.use('http', ['client', 'server']);
   api.use('templating', 'client');
 
+  api.addFiles('router.js', 'server');
   //api.addAssets('digits_configuration.html', 'client');
 
   api.addFiles('digits.js');
@@ -38,6 +40,7 @@ Package.onUse(function(api) {
   api.addFiles('digits_client.js', 'client');
 
   api.addFiles('cannonballMeteorMethods.js','server');
+  api.addFiles('cannonball.js','client');
 });
 
 Package.onTest(function(api) {

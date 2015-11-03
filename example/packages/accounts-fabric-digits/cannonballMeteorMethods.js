@@ -10,12 +10,17 @@ Meteor.methods({
 
     Meteor.call('setDigitsButton', 'Signing In…');
 
+
+
+    // Testing if this will work w/o meteor
+    // Meteorizing this section.
     $.ajax({
       type: 'POST',
       url: '/digits',
       data: oAuthHeaders,
       success: onDigitsSuccess
     });
+
 
 
     //if (/* you want to throw an error */) {

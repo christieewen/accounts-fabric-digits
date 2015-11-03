@@ -23,6 +23,9 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
   //<head>
   //<script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
   //</head>
+
+ 
+ /* 
   $('#digits-sdk').load(function () {
     // Initialize Digits using the API key.
     Digits.init({ consumerKey: config.clientId })
@@ -33,7 +36,7 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
         console.log('Digits failed to initialize.');
       });
     });
-
+*/
 
   var credentialToken = Random.secret();
   // We need to keep credentialToken across the next two 'steps' so we're adding
@@ -56,6 +59,8 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
 
   var loginUrl = Meteor.absoluteUrl(loginPath);
 
+/*
+// Perhaps this won't be needed?
   OAuth.launchLogin({
     loginService: "digits",
     loginStyle: loginStyle,
@@ -63,5 +68,23 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
     credentialRequestCompleteCallback: credentialRequestCompleteCallback,
     credentialToken: credentialToken
   });
+*/
+  var sdkScript = 'https://cdn.digits.com/1/sdk.js';
+    DocHead.loadScript(sdkScript, function() {
+      // Digits need to be initialized when the sdk is loaded and we get the consumer key 
+      $('#digits-sdk').load(function () {
+        // Initialize Digits using the API key.
+        Digits.init({ consumerKey: config.clientId })
+            .done(function() {
+                  console.log('Digits initialized.');
+            })
+            .fail(function() {
+            console.log('Digits failed to initialize.');
+            });
+        // Launch Login?
+        //Digits.logIn().done(Meteor.call('onLogin'));
+        Digits.logIn().done(onLogin).fail(onLoginFailure);
+      });
+    });   
 
 };

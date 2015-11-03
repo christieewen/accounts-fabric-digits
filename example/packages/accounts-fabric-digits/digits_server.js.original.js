@@ -1,4 +1,3 @@
-// OCT 30, 2015 .. testing following twitter's model
 FabricDigits = {};
 
 var urls = {
@@ -12,18 +11,24 @@ var urls = {
 // https://dev.twitter.com/docs/api/1.1/get/account/verify_credentials
 //Digits.whitelistedFields = ['profile_image_url', 'profile_image_url_https', 'lang'];
 
-//OAuth.registerService('digits', 1, null, function(query) {
-OAuth.registerService('digits', 1, urls, function(oauthBinding) {
-  var identity = oauthBinding.get('https://api.twitter.com/1.1/account/verify_credentials.json').data;
+OAuth.registerService('digits', 1, null, function(query) {
+//OAuth.registerService('digits', 1, urls, function(oauthBinding) {
+  var response = getTokenResponse(query);
+  var accessToken = response.access_token;
+  var identity = response.user; 
 
+
+console.log("response.access_token: ");
+console.log(response.access_token);
+/*
   var serviceData = {
     id: identity.id_str,
     screenName: identity.screen_name,
     accessToken: OAuth.sealSecret(oauthBinding.accessToken),
     accessTokenSecret: OAuth.sealSecret(oauthBinding.accessTokenSecret)
   };
-
-  //var serviceData = _.extend(identity, {accessToken: response.access_token});
+  */
+  var serviceData = _.extend(identity, {accessToken: response.access_token});
 
   // include helpful fields from twitter
   //var fields = _.pick(identity, Digits.whitelistedFields);
