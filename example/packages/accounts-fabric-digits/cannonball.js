@@ -19,6 +19,7 @@
     setDigitsButton('Signing In…');
     // Nov 2, 2015 In process of changing routes iron:router
     // What is the equivalent in meteor?
+    console.log("inside onLogin before ajax call");
     $.ajax({
       type: 'POST',
       url: '/digits',

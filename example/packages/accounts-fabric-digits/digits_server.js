@@ -8,7 +8,6 @@ var urls = {
   authenticate: "https://api.twitter.com/oauth2/token"
 };
 
-
 // https://dev.twitter.com/docs/api/1.1/get/account/verify_credentials
 //Digits.whitelistedFields = ['profile_image_url', 'profile_image_url_https', 'lang'];
 
