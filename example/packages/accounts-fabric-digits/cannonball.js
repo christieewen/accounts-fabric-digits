@@ -5,7 +5,7 @@
  * Note: Some modifications for use with Meteor by @ewenchristie
  */
 
-//(function () {
+(function () {
  
   /**
    * Handle the login once the user has completed the sign in with Digits.
@@ -75,4 +75,4 @@
     $('.digits-button').text(phoneNumber).attr('disabled', 'disabled');
   }
 
-//})();
+})();

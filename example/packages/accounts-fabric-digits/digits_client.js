@@ -60,7 +60,7 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
   var loginUrl = Meteor.absoluteUrl(loginPath);
 
 /*
-// Perhaps this won't be needed?
+// Perhaps this won't be needed? A: Would be better to wrap the Twitter fabric code into this
   OAuth.launchLogin({
     loginService: "digits",
     loginStyle: loginStyle,
