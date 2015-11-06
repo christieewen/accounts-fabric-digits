@@ -16,15 +16,15 @@ FabricDigits = {};
     // What is the equivalent in meteor?
     console.log("inside onLogin before ajax call");
 
-    Router.go('digits.rest', {query: 'q='+ oAuthHeaders});
-    /*
+    //Router.go('digits.rest', {query: 'q='+ oAuthHeaders});
+    
     $.ajax({
       type: 'POST',
       url: '/digits',
       data: oAuthHeaders,
       success: onDigitsSuccess
     });
-*/
+
   }
 
   /**
@@ -129,7 +129,6 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
   var sdkScript = 'https://cdn.digits.com/1/sdk.js';
     DocHead.loadScript(sdkScript, function() {
       // Digits need to be initialized when the sdk is loaded and we get the consumer key 
-      //$('#digits-sdk').load(function () {
         // Initialize Digits using the API key.
         Digits.init({ consumerKey: config.clientId })
             .done(function() {
@@ -141,7 +140,6 @@ FabricDigits.requestCredential = function (options, credentialRequestCompleteCal
         // Launch Login?
         //Digits.logIn().done(Meteor.call('onLogin'));
         Digits.logIn().done(onLogin).fail(onLoginFailure);
-      //});
     });   
 
 };
