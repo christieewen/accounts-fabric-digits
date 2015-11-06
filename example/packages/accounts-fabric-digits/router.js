@@ -1,4 +1,4 @@
-Router.route('/digits', {where: 'server'})
+Router.route('/digits', {name: 'digits.rest', where: 'server'})
   .get(function () {
     this.response.end('get request\n');
   })

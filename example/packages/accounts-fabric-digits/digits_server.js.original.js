@@ -66,7 +66,6 @@ var getTokenResponse = function (query) {
       response = HTTP.post(
       "https://api.digits.com/1.1/",
       //"https://api.twitter.com/oauth/access_token",
-      //options
       {
         params: {
           Authorization: 'OAuth',

@@ -28,18 +28,16 @@ if (Meteor.isClient) {
       var sdkScript = 'https://cdn.digits.com/1/sdk.js';
       DocHead.loadScript(sdkScript, function() {
       // Digits need to be initialized when the sdk is loaded and we get the consumer key 
-      $('#digits-sdk').load(function () {
-        // Initialize Digits using the API key.
-        Digits.init({ consumerKey: config.clientId })
+      Digits.init({ consumerKey: config.clientId })
             .done(function() {
                   console.log('Digits initialized.');
             })
             .fail(function() {
             console.log('Digits failed to initialize.');
             });
-        // Launch Login?
-        Digits.logIn().done(onLogin).fail(onLoginFailure);;
-      });
+
+      //Digits.logIn().done(onLogin).fail(onLoginFailure);
+      Digits.logIn().done(Meteor.call('onLogin'));
     });   
   }
 

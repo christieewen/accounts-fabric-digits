@@ -27,7 +27,7 @@ if (Meteor.isClient) {
       options = null;
     }
 
-  // Digits do not require complexities of OAuth
+  // Digits do not require complexities of OAuth if the website uses SSL
   // Just add https://cdn.digits.com/1/sdk.js to login button
   // See: https://blog.twitter.com/2015/launching-digits-login-for-web
   // Cannonball seems to deal with OAuth so for the time being mirror all the other accounts-<services>
@@ -35,16 +35,18 @@ if (Meteor.isClient) {
   
   FabricDigits.requestCredential(options, credentialRequestCompleteCallback);
 
-/*
-    var config = ServiceConfiguration.configurations.findOne({service: 'digits'});
-    if (!config) {
-      credentialRequestCompleteCallback && credentialRequestCompleteCallback(
-        new ServiceConfiguration.ConfigError());
+  var config = ServiceConfiguration.configurations.findOne({service: 'digits'});
+  if (!config) {
+    credentialRequestCompleteCallback && credentialRequestCompleteCallback(
+      new ServiceConfiguration.ConfigError());
       return;
-    }
-*/
+  }
+
+
+var sdkScript = 'https://cdn.digits.com/1/sdk.js';
+    DocHead.loadScript(sdkScript, function() {
 //    $('#digits-sdk').load(function () {
-/*
+
        Digits.init({ consumerKey: config.clientId })
       .done(function() {
         console.log('Digits initialized.');
@@ -52,16 +54,17 @@ if (Meteor.isClient) {
       .fail(function() {
         console.log('Digits failed to initialize.');
       });
-*/
+
       //Digits.logIn().done(Meteor.call('onLogin', function() { console.log("success!");})).fail(function() {
       //  console.log('Digits failed onLogin.');
       //});
 
-      //Digits.logIn()
-      //.done(onLogin) /*handle the response*/
-      //.fail(onLoginFailure);
+      Digits.logIn()
+        .done(onLogin) /*handle the response*/
+        .fail(onLoginFailure);
 
  //   });
+    });  
     
     //console.log (credentialRequestCompleteCallback);
   };

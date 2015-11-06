@@ -5,7 +5,7 @@
  * Note: Some modifications for use with Meteor by @ewenchristie
  */
 
-(function () {
+//(function () {
  
   /**
    * Handle the login once the user has completed the sign in with Digits.
@@ -20,12 +20,16 @@
     // Nov 2, 2015 In process of changing routes iron:router
     // What is the equivalent in meteor?
     console.log("inside onLogin before ajax call");
+
+    Router.go('digits.rest', {query: 'q='+ oAuthHeaders});
+    /*
     $.ajax({
       type: 'POST',
       url: '/digits',
       data: oAuthHeaders,
       success: onDigitsSuccess
     });
+*/
   }
 
   /**
@@ -70,4 +74,5 @@
   function setDigitsNumber(phoneNumber) {
     $('.digits-button').text(phoneNumber).attr('disabled', 'disabled');
   }
-})();
+
+//})();

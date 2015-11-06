@@ -58,24 +58,23 @@ var getTokenResponse = function (query) {
   var response;
   try {
       response = HTTP.post(
-      //"https://api.digits.com/1.1/",
-      "https://api.twitter.com/oauth/access_token",
-      //options
+      "https://api.digits.com/1.1/",
+      //"https://api.twitter.com/oauth/access_token",
+      // Test OAuth: https://dev.twitter.com/oauth/tools/signature-generator/8414666
       {
         params: {
-          /*
           Authorization: 'OAuth',
           oauth_consumer_key: config.clientId,
           oauth_signature_method: 'HMAC-SHA1',
           oauth_token: OAuth.openSecret(config.secret),
           oauth_version: '1.0'
-          */
-
+          /*
           code: query.code,
           client_id: config.clientId,
           redirect_uri: OAuth._redirectUri("digits", config),
           client_secret: OAuth.openSecret(config.secret),
           grant_type: 'authorization_code'
+          */
         }
       });
 
