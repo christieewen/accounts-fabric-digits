@@ -39,8 +39,6 @@ Package.onUse(function(api) {
   api.addFiles('digits_server.js', 'server');
   api.addFiles('digits_client.js', 'client');
 
-  api.addFiles('cannonballMeteorMethods.js','server');
-  api.addFiles('cannonball.js','client');
 });
 
 Package.onTest(function(api) {

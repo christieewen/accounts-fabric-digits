@@ -48,27 +48,29 @@ Router.route('/digits', {name: 'digits.rest', where: 'server'})
     	}
   	};
 
-
   	// HTTP GET
   	// Perform the request to the Digits API.
-  	request.get(options, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      // Send the verified phone number and Digits user ID.
-      var digits = JSON.parse(body)
-      return res.send({
-        phoneNumber: digits.phone_number,
-        userID: digits.id_str,
-        error: ''
-      });
-    } else {
-      	// Send the error.
-      	return res.send({
-        	phoneNumber: '',
-        	userID: '',
-        	error: error.message
-      	});
-    	}
-  	});
+    HTTP.call("GET", apiUrl,
+          options,
+          function (error, response) {
+            if (!error && response.statusCode == 200) {
+              // Send the verified phone number and Digits user ID.
+              //var digits = JSON.parse(response.content)
+              var digits = response.data
+              return res.send({
+                phoneNumber: digits.phone_number,
+                userID: digits.id_str,
+                error: ''
+              });
+            } else {
+              // Send the error.
+              return res.send({
+                phoneNumber: '',
+                userID: '',
+                error: error.message
+              });
+            }
+          });
 
     res.end('post request\n');
   });
