@@ -23,6 +23,8 @@ Package.onUse(function(api) {
   api.use('http', ['client', 'server']);
   api.use('templating', 'client');
 
+  api.use('iron:url', ['client', 'server']);
+
   api.addFiles('router.js', 'server');
   //api.addAssets('digits_configuration.html', 'client');
 

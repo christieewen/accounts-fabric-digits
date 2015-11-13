@@ -2,15 +2,14 @@ Router.route('/digits', {name: 'digits.rest', where: 'server'})
   .get(function () {
     this.response.end('get request\n');
   })
-  .post(function () {
-  	var req = this.request;
-  	var res = this.response;
+  .post(function (req, res) {
+  	//var req = this.request;
+  	//var res = this.response;
 
   	var apiUrl = req.body['apiUrl']
   	var credentials = req.body['credentials']
   	var verified = true;
   	var messages = [];
-
 
   	// Verify the OAuth consumer key.
   	var config = ServiceConfiguration.configurations.findOne({service: 'digits'});
@@ -25,7 +24,11 @@ Router.route('/digits', {name: 'digits.rest', where: 'server'})
   	}
 
   	// Verify the hostname.
-  	var hostname = url.parse(req.body.apiUrl).hostname;
+  	//var hostname = url.parse(req.body.apiUrl).hostname;
+    var Url = Iron.Url;
+
+    var hostname = Url.parse(req.body.apiUrl).hostname;
+    console.log("hostname: ", hostname);
   	if (hostname != 'api.digits.com' && hostname != 'api.twitter.com') {
     	verified = false;
     	messages.push('Invalid API hostname.');
