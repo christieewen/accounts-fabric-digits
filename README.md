@@ -10,12 +10,20 @@ and also add following package as pre-req -
 
 `meteor add service-configuration`
 
+`meteor add glittershark:meteor-express`
+
+`npm install --save express`
+
 and also add following package for the example -
 
 `meteor add accounts-ui`
 
 To convert an image to a data URI with your browser, see: 
 http://www.abeautifulsite.net/convert-an-image-to-a-data-uri-with-your-browser/
+
+
+
+This package is not ready to be published.  To try it out, go into the examples directory and run meteor.
 
 
 TODO: 
