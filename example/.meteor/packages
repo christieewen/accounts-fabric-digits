@@ -26,3 +26,4 @@ accounts-ui-unstyled
 oauth
 oauth1
 iron:router@1.0.12
+glittershark:meteor-express

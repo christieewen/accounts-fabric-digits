@@ -25,6 +25,8 @@ Package.onUse(function(api) {
 
   api.use('iron:url', ['client', 'server']);
 
+  api.use('glittershark:meteor-express', ['client', 'server']);
+
   api.addFiles('router.js', 'server');
   //api.addAssets('digits_configuration.html', 'client');
 
